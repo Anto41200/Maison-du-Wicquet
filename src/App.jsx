@@ -3,8 +3,6 @@ import { AnimatePresence } from 'framer-motion';
 import Layout from "./components/Layout";
 import HomePage from './pages/HomePage';
 import HistoirePage from './pages/HistoirePage';
-import GeneralogiePage from './pages/GeneralogiePage';
-
 
 export default function App() {
   const location = useLocation();
