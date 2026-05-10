@@ -9,7 +9,7 @@ export default defineConfig({
   preview: {
     host: true,
     allowedHosts: [
-      "maison-du-wicquet-production.up.railway.app"
+      "maison-du-wicquet.up.railway.app"
     ]
   }
 })
