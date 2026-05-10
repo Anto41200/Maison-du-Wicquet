@@ -1,0 +1,386 @@
+/* ═══════════════════════════════════════════════════════════
+   Maison du Wicquet — Styles globaux
+   Palette : Sinople · Argent · Noir · Or discret
+   ═══════════════════════════════════════════════════════════ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Variables CSS ───────────────────────────────────────── */
+:root {
+  --sinople:      #1a3a1a;
+  --sinople-mid:  #2d5a2d;
+  --sinople-light:#4a7c4a;
+  --or:           #c9a84c;
+  --or-bright:    #f0c040;
+  --argent:       #e8e4d9;
+  --noir:         #0a0a0a;
+  --parchemin:    #f5eed8;
+  --ardoise:      #1e1e1e;
+
+  /* Gradient vertical noble */
+  --gradient-noble: linear-gradient(
+    180deg,
+    #0a0a0a 0%,
+    #0e1a0e 30%,
+    #1a3a1a 60%,
+    #0e1a0e 85%,
+    #0a0a0a 100%
+  );
+
+  --gradient-or: linear-gradient(135deg, #c9a84c 0%, #f0c040 50%, #c9a84c 100%);
+  --gradient-parchemin: linear-gradient(135deg, #f5eed8 0%, #ede4c8 100%);
+}
+
+/* ── Reset et base ───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--noir);
+  color: var(--argent);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar personnalisée ─────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--sinople) 0%, var(--or) 100%);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--or); }
+
+/* ── Sélection texte ─────────────────────────────────────── */
+::selection {
+  background: var(--sinople);
+  color: var(--or);
+}
+
+/* ── Typographie globale ─────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.font-caps {
+  font-family: 'Cinzel', 'Times New Roman', serif;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ── Ornements héraldiques ───────────────────────────────── */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--or), transparent);
+}
+
+.ornament-fleur {
+  color: var(--or);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Séparateur avec losange (rustre) */
+.divider-noble {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--or) 30%, var(--or) 70%, transparent 100%);
+  margin: 3rem 0;
+}
+.divider-noble::before {
+  content: '⬧';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--noir);
+  color: var(--or);
+  padding: 0 0.75rem;
+  font-size: 1rem;
+}
+
+/* ── Sections et cartes ──────────────────────────────────── */
+.section-noble {
+  position: relative;
+  padding: 6rem 0;
+  overflow: hidden;
+}
+
+.section-noble::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-noble);
+  z-index: 0;
+}
+
+.card-noble {
+  background: linear-gradient(135deg, #141414 0%, #1a1a1a 50%, #141414 100%);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 2px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-noble::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gradient-or);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.card-noble:hover::before { transform: scaleX(1); }
+
+.card-noble:hover {
+  border-color: rgba(201, 168, 76, 0.5);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 20px rgba(201,168,76,0.1);
+  transform: translateY(-2px);
+}
+
+/* ── Boutons nobles ──────────────────────────────────────── */
+.btn-noble {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background: transparent;
+  border: 1px solid var(--or);
+  color: var(--or);
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-noble::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--or);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.btn-noble:hover {
+  color: var(--noir);
+}
+
+.btn-noble:hover::before {
+  transform: translateX(0);
+}
+
+.btn-noble-filled {
+  background: var(--sinople);
+  border-color: var(--sinople);
+  color: var(--or);
+}
+
+.btn-noble-filled:hover {
+  background: var(--sinople-mid);
+  color: var(--or-bright);
+}
+
+.btn-noble-filled::before {
+  display: none;
+}
+
+/* ── Timeline ────────────────────────────────────────────── */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 0%, var(--or) 10%, var(--or) 90%, transparent 100%);
+  transform: translateX(-50%);
+}
+
+.timeline-node {
+  width: 14px;
+  height: 14px;
+  background: var(--or);
+  border: 2px solid var(--noir);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(201,168,76,0.5);
+}
+
+.timeline-node.major {
+  width: 20px;
+  height: 20px;
+  background: var(--sinople-mid);
+  border-color: var(--or);
+  box-shadow: 0 0 20px rgba(201,168,76,0.7);
+}
+
+/* ── Texte doré ──────────────────────────────────────────── */
+.text-or { color: var(--or); }
+.text-or-bright { color: var(--or-bright); }
+.text-sinople { color: var(--sinople-light); }
+.text-argent { color: var(--argent); }
+.text-parchemin { color: var(--parchemin); }
+
+/* ── Overlay de texture parchemin ────────────────────────── */
+.texture-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* ── Blason / Héraldique ─────────────────────────────────── */
+.blazon-frame {
+  border: 3px solid var(--or);
+  position: relative;
+  padding: 0.25rem;
+}
+.blazon-frame::before, .blazon-frame::after {
+  content: '✦';
+  position: absolute;
+  color: var(--or);
+  font-size: 0.75rem;
+  background: var(--noir);
+  padding: 0 0.25rem;
+}
+.blazon-frame::before { top: -0.6rem; left: 50%; transform: translateX(-50%); }
+.blazon-frame::after  { bottom: -0.6rem; left: 50%; transform: translateX(-50%); }
+
+/* ── Galerie ─────────────────────────────────────────────── */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: sepia(0.3) contrast(1.05);
+  transition: all 0.6s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+  filter: sepia(0) contrast(1.1);
+}
+
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+}
+
+.gallery-item:hover .gallery-item-overlay { opacity: 1; }
+
+/* ── Navigation ──────────────────────────────────────────── */
+.nav-link {
+  position: relative;
+  color: var(--argent);
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s;
+  padding-bottom: 2px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--or);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--or);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+/* ── Devise ──────────────────────────────────────────────── */
+.devise-text {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  letter-spacing: 0.3em;
+  color: var(--or);
+  text-transform: uppercase;
+}
+
+/* ── Loader noble ────────────────────────────────────────── */
+.noble-loader {
+  width: 48px; height: 48px;
+  border: 2px solid rgba(201,168,76,0.2);
+  border-top-color: var(--or);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Responsive helpers ──────────────────────────────────── */
+@media (max-width: 768px) {
+  body { font-size: 1rem; }
+
+  .section-noble { padding: 4rem 0; }
+
+  .timeline-line { left: 20px; }
+  .timeline-node { left: 20px; }
+}
+
+/* ── Focus visible pour accessibilité ───────────────────── */
+:focus-visible {
+  outline: 2px solid var(--or);
+  outline-offset: 3px;
+}
+
+/* ── Animations d'entrée ─────────────────────────────────── */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
