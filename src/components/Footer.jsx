@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MAISON_INFO } from '../../data/wicquet';
+import { MAISON_INFO } from '../data/wicquet';
 
 const WicquetEmblemLarge = () => (
   <svg width="64" height="78" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
