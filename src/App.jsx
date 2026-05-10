@@ -3,18 +3,8 @@ import { AnimatePresence } from 'framer-motion';
 import Layout from "./components/Layout";
 import HomePage from './pages/HomePage';
 import HistoirePage from './pages/HistoirePage';
-import ChronologiePage from './pages/ChronologiePage';
 import GeneralogiePage from './pages/GeneralogiePage';
-import HeraldiquePage from './pages/HeraldiquePage';
-import ChateauPage from './pages/ChateauPage';
-import ArchivesPage from './pages/ArchivesPage';
-import BranchesPage from './pages/BranchesPage';
-import CartePage from './pages/CartePage';
-import AncetresPage from './pages/AncetresPage';
-import AncetreDetailPage from './pages/AncetreDetailPage';
-import RecherchePage from './pages/RecherchePage';
-import AdminPage from './pages/AdminPage';
-import NotFoundPage from './pages/NotFoundPage';
+
 
 export default function App() {
   const location = useLocation();
