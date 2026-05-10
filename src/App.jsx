@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import Layout from './components/layout/Layout';
+import Layout from "./components/Layout";
 import HomePage from './pages/HomePage';
 import HistoirePage from './pages/HistoirePage';
 import ChronologiePage from './pages/ChronologiePage';
